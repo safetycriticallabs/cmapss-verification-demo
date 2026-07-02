@@ -1,0 +1,10 @@
+{
+  "criterion": "ECE <= 0.05 (representative)",
+  "bins": 15,
+  "temperature_fitted_on_val": 5.071,
+  "ece_before": 0.1603,
+  "pass_before": false,
+  "ece_after": 0.0295,
+  "pass_after": true,
+  "test_accuracy_unchanged": 0.8033
+}

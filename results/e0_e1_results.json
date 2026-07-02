@@ -1,0 +1,150 @@
+{
+  "dataset": "FD001",
+  "window": 30,
+  "sensors_kept": [
+    "s2",
+    "s3",
+    "s4",
+    "s7",
+    "s8",
+    "s9",
+    "s11",
+    "s12",
+    "s13",
+    "s14",
+    "s15",
+    "s17",
+    "s20",
+    "s21"
+  ],
+  "n_sensors": 14,
+  "bins": {
+    "nominal": "RUL>100",
+    "degraded": "30<RUL<=100",
+    "critical": "RUL<=30"
+  },
+  "units": {
+    "train": 60,
+    "val": 20,
+    "test": 20
+  },
+  "E0_unit_split": {
+    "val": {
+      "accuracy": 0.8103,
+      "macro_f1": 0.8219,
+      "per_class_recall": [
+        0.8367,
+        0.7493,
+        0.879
+      ],
+      "confusion_matrix": [
+        [
+          1353,
+          264,
+          0
+        ],
+        [
+          277,
+          1049,
+          74
+        ],
+        [
+          0,
+          75,
+          545
+        ]
+      ],
+      "n": 3637
+    },
+    "test": {
+      "accuracy": 0.8033,
+      "macro_f1": 0.8226,
+      "per_class_recall": [
+        0.7826,
+        0.7807,
+        0.9048
+      ],
+      "confusion_matrix": [
+        [
+          1177,
+          327,
+          0
+        ],
+        [
+          248,
+          1093,
+          59
+        ],
+        [
+          0,
+          59,
+          561
+        ]
+      ],
+      "n": 3524
+    },
+    "class_counts_train": [
+      4512,
+      4198,
+      1860
+    ]
+  },
+  "E1_row_split_leakage": {
+    "val": {
+      "accuracy": 0.8204,
+      "macro_f1": 0.8333,
+      "per_class_recall": [
+        0.8427,
+        0.7518,
+        0.9156
+      ],
+      "confusion_matrix": [
+        [
+          1318,
+          246,
+          0
+        ],
+        [
+          264,
+          1027,
+          75
+        ],
+        [
+          0,
+          52,
+          564
+        ]
+      ],
+      "n": 3546
+    },
+    "test": {
+      "accuracy": 0.8305,
+      "macro_f1": 0.8445,
+      "per_class_recall": [
+        0.8427,
+        0.7778,
+        0.9164
+      ],
+      "confusion_matrix": [
+        [
+          1286,
+          240,
+          0
+        ],
+        [
+          247,
+          1078,
+          61
+        ],
+        [
+          0,
+          53,
+          581
+        ]
+      ],
+      "n": 3546
+    }
+  },
+  "leakage_inflation_pp": 2.72,
+  "runtime_s": 4.7
+}

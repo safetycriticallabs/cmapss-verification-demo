@@ -1,0 +1,32 @@
+{
+  "declared_odd": "FD001: single operating condition, HPC fault mode",
+  "characterisation": {
+    "pca_components": 32,
+    "covariance": "shared, Ledoit-Wolf",
+    "class_gaussians": 3
+  },
+  "criterion": "detection >= 97% at FPR <= 2% (representative)",
+  "n_id_test": 3524,
+  "n_ood_A_fd002": 10185,
+  "n_ood_B_fd003_late": 7200,
+  "MSP_A_fd002_regimes": {
+    "auroc": 0.1169,
+    "tpr_at_2pct_fpr": 0.0,
+    "pass_97pct": false
+  },
+  "MSP_B_fd003_fanfault": {
+    "auroc": 0.3516,
+    "tpr_at_2pct_fpr": 0.0096,
+    "pass_97pct": false
+  },
+  "MAH_A_fd002_regimes": {
+    "auroc": 1.0,
+    "tpr_at_2pct_fpr": 1.0,
+    "pass_97pct": true
+  },
+  "MAH_B_fd003_fanfault": {
+    "auroc": 0.767,
+    "tpr_at_2pct_fpr": 0.4421,
+    "pass_97pct": false
+  }
+}

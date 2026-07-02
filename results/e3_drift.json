@@ -1,0 +1,71 @@
+{
+  "naive_design_findings": {
+    "N1_whole_life_pooled_max_psi": 7.89,
+    "N2_nominal_pooled_max_psi": 7.94,
+    "N3_per_asset_small_window": {
+      "window": 60,
+      "bins": 8,
+      "approx_noise_floor": 0.117,
+      "clean_false_alarm_rate": 1.0
+    },
+    "N4_discrete_channel_degeneracy": {
+      "channel": "s17",
+      "measured_clean_psi": 4.34,
+      "cause": "quantile bins collapse on integer-valued channel"
+    },
+    "lesson": "regime, asset baseline, and window/bin design are declared elements of the monitor; thresholds are only meaningful relative to the no-drift sampling floor"
+  },
+  "compliant_monitor": {
+    "asset_baseline_cycles": 20,
+    "monitored_channels": [
+      "s2",
+      "s3",
+      "s4",
+      "s7",
+      "s8",
+      "s9",
+      "s11",
+      "s12",
+      "s13",
+      "s14",
+      "s15",
+      "s20",
+      "s21"
+    ],
+    "trail": 500,
+    "bins": 10,
+    "step": 25,
+    "noise_floor_approx": 0.018,
+    "aggregate": "max over channels",
+    "alert": 0.1,
+    "inhibit": 0.25
+  },
+  "declared_injection": {
+    "channels": [
+      "s2",
+      "s7",
+      "s11",
+      "s15"
+    ],
+    "onset_index": 800,
+    "ramp_cycles": 600,
+    "full_bias_sigma": 2.0
+  },
+  "stream_length": 2084,
+  "clean_run": {
+    "max_psi": 0.1238,
+    "alert_crossings": true
+  },
+  "injected_run": {
+    "alert_index": 975,
+    "inhibit_index": 1150,
+    "alert_latency_cycles": 175,
+    "inhibit_latency_cycles": 350,
+    "injected_bias_sigma_at_alert": 0.583,
+    "injected_bias_sigma_at_inhibit": 1.167
+  },
+  "classifier_false_fault_rate": {
+    "pre_onset_mean_over_units": 0.1537,
+    "full_bias_mean_over_units": 0.698
+  }
+}
