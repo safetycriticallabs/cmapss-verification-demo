@@ -1,11 +1,11 @@
 # C-MAPSS Applied Verification Demonstration
 
-Applied demonstration for "A failure-mode-driven requirements and verification
-framework for assuring artificial intelligence in safety-critical systems"
-(RESS submission). A deliberately ordinary health-state classifier is trained
-on NASA C-MAPSS turbofan data and the framework's verifications are executed
-against it; the object of study is the verification evidence produced, not
-model performance.
+Applied demonstration accompanying a journal manuscript in submission on a
+failure-mode-driven requirements and verification framework for assuring
+artificial intelligence in safety-critical systems. A deliberately ordinary
+health-state classifier is trained on NASA C-MAPSS turbofan data and the
+framework's verifications are executed against it; the object of study is the
+verification evidence produced, not model performance.
 
 Framework: https://doi.org/10.5281/zenodo.19024420
 
