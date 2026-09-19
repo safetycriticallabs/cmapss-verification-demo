@@ -1,0 +1,46 @@
+{
+  "model": "M0",
+  "test_accuracy": 0.8033,
+  "leakage": {
+    "unit_level_acc": 0.8033,
+    "row_level_acc": 0.8305,
+    "gap_pp": 2.72
+  },
+  "feature_dim": 64,
+  "ood": {
+    "MSP": {
+      "fpr_measured_on_test": 0.0253,
+      "A_fd002_regimes": {
+        "auroc": 0.1169,
+        "tpr": 0.0,
+        "pass_97pct": false
+      },
+      "B_fd003_fan_mode": {
+        "auroc": 0.2274,
+        "tpr": 0.0061,
+        "pass_97pct": false
+      }
+    },
+    "feature_MAH": {
+      "fpr_measured_on_test": 0.0204,
+      "A_fd002_regimes": {
+        "auroc": 1.0,
+        "tpr": 1.0,
+        "pass_97pct": true
+      },
+      "B_fd003_fan_mode": {
+        "auroc": 0.9953,
+        "tpr": 0.9638,
+        "pass_97pct": false
+      }
+    }
+  },
+  "calibration": {
+    "temperature": 5.071,
+    "ece_before": 0.1603,
+    "pass_before": false,
+    "ece_after": 0.0295,
+    "pass_after": true
+  },
+  "runtime_s": 5.1
+}

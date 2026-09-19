@@ -1,0 +1,24 @@
+{
+  "requirement": "AI-3.3 operational input distribution testing",
+  "grid": {
+    "size": 20,
+    "axes": "PC1, PC2 of standardised training windows",
+    "range": "1st to 99th percentile of training scores",
+    "training_cells_occupied": 312,
+    "test_cells_occupied_within_training": 210,
+    "test_cells_outside_training_cells": 8,
+    "grid_coverage": 0.6731,
+    "training_mass_covered": 0.8081,
+    "per_class_grid_coverage": {
+      "nominal": 0.5714,
+      "degraded": 0.6085,
+      "critical": 0.5233
+    }
+  },
+  "envelope": {
+    "training_99th_percentile_mahalanobis": 7.6067,
+    "test_fraction_within_envelope": 0.9912
+  },
+  "criterion": "grid coverage >= 0.9 (representative)",
+  "pass": false
+}

@@ -1,0 +1,40 @@
+{
+  "requirement": "AI-7.2 adversarial input protection; AI-3.4 boundary and edge cases",
+  "forward_pass_check_max_abs_diff": 0.0,
+  "clean_accuracy": 0.8033,
+  "fgsm": {
+    "0.02": 0.6501,
+    "0.05": 0.4194,
+    "0.1": 0.1632,
+    "0.2": 0.057
+  },
+  "gaussian_noise": {
+    "0.02": 0.8039,
+    "0.05": 0.8033,
+    "0.1": 0.8016,
+    "0.2": 0.7849
+  },
+  "stuck_at_channel": {
+    "s2": 0.7727,
+    "s3": 0.8175,
+    "s4": 0.6881,
+    "s7": 0.6793,
+    "s8": 0.6893,
+    "s9": 0.7633,
+    "s11": 0.7074,
+    "s12": 0.7622,
+    "s13": 0.7228,
+    "s14": 0.7585,
+    "s15": 0.7216,
+    "s17": 0.731,
+    "s20": 0.7551,
+    "s21": 0.8073
+  },
+  "fgsm_degradation_pp_at_0.05": 38.39,
+  "worst_stuck_channel": {
+    "channel": "s7",
+    "accuracy": 0.6793
+  },
+  "criterion": "FGSM accuracy degradation <= 5.0 pp at eps = 0.05 (representative)",
+  "pass": false
+}

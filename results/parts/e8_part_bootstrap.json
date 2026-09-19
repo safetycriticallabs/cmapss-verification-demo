@@ -1,0 +1,114 @@
+{
+ "B": 1000,
+ "seed": 2026,
+ "method": "unit-level resampling with replacement; 95% percentile intervals",
+ "unit_level_test": {
+  "accuracy": 0.8033,
+  "accuracy_ci": [
+   0.7684,
+   0.8359
+  ],
+  "macro_f1_ci": [
+   0.7895,
+   0.8529
+  ],
+  "critical_recall_ci": [
+   0.8565,
+   0.9484
+  ]
+ },
+ "row_level_test": {
+  "accuracy": 0.8305,
+  "accuracy_ci": [
+   0.8175,
+   0.8424
+  ]
+ },
+ "ood": {
+  "MSP_A_fd002_regimes": {
+   "tpr": 0.0,
+   "tpr_ci": [
+    0.0,
+    0.0
+   ],
+   "auroc": 0.1169,
+   "auroc_ci": [
+    0.094,
+    0.1395
+   ]
+  },
+  "MSP_B_fd003_fan_mode": {
+   "tpr": 0.0061,
+   "tpr_ci": [
+    0.0032,
+    0.0094
+   ],
+   "auroc": 0.2274,
+   "auroc_ci": [
+    0.1927,
+    0.261
+   ]
+  },
+  "MSP_B_fd003_hpc_mode": {
+   "tpr": 0.0158,
+   "tpr_ci": [
+    0.0122,
+    0.0195
+   ],
+   "auroc": 0.4453,
+   "auroc_ci": [
+    0.4089,
+    0.4817
+   ]
+  },
+  "MAH_A_fd002_regimes": {
+   "tpr": 1.0,
+   "tpr_ci": [
+    1.0,
+    1.0
+   ],
+   "auroc": 1.0,
+   "auroc_ci": [
+    1.0,
+    1.0
+   ]
+  },
+  "MAH_B_fd003_fan_mode": {
+   "tpr": 0.9616,
+   "tpr_ci": [
+    0.928,
+    0.9881
+   ],
+   "auroc": 0.9908,
+   "auroc_ci": [
+    0.9808,
+    0.9984
+   ]
+  },
+  "MAH_B_fd003_hpc_mode": {
+   "tpr": 0.0443,
+   "tpr_ci": [
+    0.0171,
+    0.0809
+   ],
+   "auroc": 0.5981,
+   "auroc_ci": [
+    0.5503,
+    0.6417
+   ]
+  }
+ },
+ "calibration": {
+  "temperature": 5.071,
+  "ece_before": 0.1603,
+  "ece_before_ci": [
+   0.1292,
+   0.1938
+  ],
+  "ece_after": 0.0295,
+  "ece_after_ci": [
+   0.0161,
+   0.0593
+  ]
+ }
+}

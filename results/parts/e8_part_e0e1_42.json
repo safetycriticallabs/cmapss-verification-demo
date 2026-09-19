@@ -1,0 +1,37 @@
+[
+ {
+  "partition_seed": 42,
+  "model_seed": 0,
+  "unit_level_acc": 0.8033,
+  "row_level_acc": 0.8305,
+  "gap_pp": 2.72
+ },
+ {
+  "partition_seed": 42,
+  "model_seed": 1,
+  "unit_level_acc": 0.8005,
+  "row_level_acc": 0.8243,
+  "gap_pp": 2.38
+ },
+ {
+  "partition_seed": 42,
+  "model_seed": 2,
+  "unit_level_acc": 0.8093,
+  "row_level_acc": 0.8336,
+  "gap_pp": 2.43
+ },
+ {
+  "partition_seed": 42,
+  "model_seed": 3,
+  "unit_level_acc": 0.8082,
+  "row_level_acc": 0.8285,
+  "gap_pp": 2.04
+ },
+ {
+  "partition_seed": 42,
+  "model_seed": 4,
+  "unit_level_acc": 0.7988,
+  "row_level_acc": 0.8297,
+  "gap_pp": 3.09
+ }
+]

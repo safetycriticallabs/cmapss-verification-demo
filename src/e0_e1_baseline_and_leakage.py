@@ -45,7 +45,8 @@ def evaluate(model, X, y):
 def main():
     t0 = time.time()
     df = cmapss.load(DATA, "FD001", "train")
-    sensors = cmapss.informative_sensors(df)
+    tr_u, va_u, te_u = cmapss.split_units(df["unit"].unique())
+    sensors = cmapss.informative_sensors(df[df["unit"].isin(tr_u)])
     results = {"dataset": "FD001", "window": cmapss.WINDOW,
                "sensors_kept": sensors, "n_sensors": len(sensors),
                "bins": {"nominal": f"RUL>{cmapss.BIN_NOMINAL}",
@@ -53,7 +54,6 @@ def main():
                         "critical": f"RUL<={cmapss.BIN_CRITICAL}"}}
 
     # ---- E0: unit-wise partitioning (AI-1.1 compliant) ----
-    tr_u, va_u, te_u = cmapss.split_units(df["unit"].unique())
     results["units"] = {"train": len(tr_u), "val": len(va_u), "test": len(te_u)}
     Xtr, ytr, _, _ = cmapss.windows(df, tr_u, sensors)
     Xva, yva, _, _ = cmapss.windows(df, va_u, sensors)

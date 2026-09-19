@@ -4,3 +4,5 @@ pandas==2.3.3
 scipy==1.15.3
 scikit-learn==1.7.2
 matplotlib==3.10.9
+# E11 models M3 and M4 additionally need PyTorch (tested with torch==2.14.0, CPU build):
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu

@@ -1,0 +1,49 @@
+{
+  "model": "M4",
+  "test_accuracy": 0.7704,
+  "leakage": {
+    "unit_level_acc": 0.7704,
+    "row_level_acc": 0.9191,
+    "gap_pp": 14.86
+  },
+  "feature_dim": 64,
+  "ood": {
+    "MSP": {
+      "fpr_measured_on_test": 0.0281,
+      "A_fd002_regimes": {
+        "auroc": 0.9115,
+        "tpr": 0.0264,
+        "pass_97pct": false
+      },
+      "B_fd003_fan_mode": {
+        "auroc": 0.7462,
+        "tpr": 0.1124,
+        "pass_97pct": false
+      }
+    },
+    "feature_MAH": {
+      "fpr_measured_on_test": 0.0065,
+      "A_fd002_regimes": {
+        "auroc": 0.9991,
+        "tpr": 0.9583,
+        "pass_97pct": false
+      },
+      "B_fd003_fan_mode": {
+        "auroc": 0.9936,
+        "tpr": 0.9577,
+        "pass_97pct": false
+      }
+    }
+  },
+  "calibration": {
+    "temperature": 2.38,
+    "ece_before": 0.166,
+    "pass_before": false,
+    "ece_after": 0.0576,
+    "pass_after": false
+  },
+  "software": {
+    "torch": "2.14.0+cpu"
+  },
+  "runtime_s": 78.9
+}

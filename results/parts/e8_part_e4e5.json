@@ -1,0 +1,57 @@
+[
+ {
+  "model_seed": 0,
+  "test_acc": 0.8033,
+  "msp_auroc_A_fd002": 0.1169,
+  "msp_tpr_A_fd002": 0.0,
+  "msp_auroc_B_fd003_fan": 0.2274,
+  "msp_tpr_B_fd003_fan": 0.0061,
+  "ece_before": 0.1603,
+  "ece_after": 0.0295,
+  "temperature": 5.071
+ },
+ {
+  "model_seed": 1,
+  "test_acc": 0.8005,
+  "msp_auroc_A_fd002": 0.1188,
+  "msp_tpr_A_fd002": 0.0,
+  "msp_auroc_B_fd003_fan": 0.2624,
+  "msp_tpr_B_fd003_fan": 0.0039,
+  "ece_before": 0.1671,
+  "ece_after": 0.0288,
+  "temperature": 5.074
+ },
+ {
+  "model_seed": 2,
+  "test_acc": 0.8093,
+  "msp_auroc_A_fd002": 0.1202,
+  "msp_tpr_A_fd002": 0.0,
+  "msp_auroc_B_fd003_fan": 0.4873,
+  "msp_tpr_B_fd003_fan": 0.02,
+  "ece_before": 0.1566,
+  "ece_after": 0.0269,
+  "temperature": 4.937
+ },
+ {
+  "model_seed": 3,
+  "test_acc": 0.8082,
+  "msp_auroc_A_fd002": 0.1148,
+  "msp_tpr_A_fd002": 0.0,
+  "msp_auroc_B_fd003_fan": 0.2338,
+  "msp_tpr_B_fd003_fan": 0.0058,
+  "ece_before": 0.1561,
+  "ece_after": 0.0238,
+  "temperature": 4.997
+ },
+ {
+  "model_seed": 4,
+  "test_acc": 0.7988,
+  "msp_auroc_A_fd002": 0.1158,
+  "msp_tpr_A_fd002": 0.0,
+  "msp_auroc_B_fd003_fan": 0.1782,
+  "msp_tpr_B_fd003_fan": 0.0029,
+  "ece_before": 0.166,
+  "ece_after": 0.0312,
+  "temperature": 5.019
+ }
+]

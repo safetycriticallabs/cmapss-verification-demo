@@ -1,0 +1,97 @@
+{
+  "requirement": "AI-2.1 bias-bounded baseline performance (cross-regime disparity)",
+  "dataset": "FD002 (six operating regimes), unit-level 60/20/20 split seed 42, model seed 0",
+  "inputs": [
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s12",
+    "s13",
+    "s14",
+    "s15",
+    "s17",
+    "s18",
+    "s20",
+    "s21",
+    "op1",
+    "op2",
+    "op3"
+  ],
+  "n_train_windows": 27250,
+  "n_test_windows": 8950,
+  "overall_test_accuracy": 0.6477,
+  "per_regime": {
+    "regime_0": {
+      "n_windows": 2220,
+      "op_settings_centre": [
+        42.003,
+        0.84,
+        100.0
+      ],
+      "accuracy": 0.6446,
+      "critical_recall": 0.7935
+    },
+    "regime_1": {
+      "n_windows": 1353,
+      "op_settings_centre": [
+        0.002,
+        0.0,
+        100.0
+      ],
+      "accuracy": 0.6548,
+      "critical_recall": 0.7645
+    },
+    "regime_2": {
+      "n_windows": 1332,
+      "op_settings_centre": [
+        25.003,
+        0.62,
+        60.0
+      ],
+      "accuracy": 0.6441,
+      "critical_recall": 0.7469
+    },
+    "regime_3": {
+      "n_windows": 1357,
+      "op_settings_centre": [
+        10.003,
+        0.25,
+        100.0
+      ],
+      "accuracy": 0.6551,
+      "critical_recall": 0.7712
+    },
+    "regime_4": {
+      "n_windows": 1358,
+      "op_settings_centre": [
+        20.003,
+        0.701,
+        100.0
+      ],
+      "accuracy": 0.6244,
+      "critical_recall": 0.755
+    },
+    "regime_5": {
+      "n_windows": 1330,
+      "op_settings_centre": [
+        35.003,
+        0.84,
+        100.0
+      ],
+      "accuracy": 0.6654,
+      "critical_recall": 0.7602
+    }
+  },
+  "accuracy_disparity_pp": 4.1,
+  "critical_recall_disparity_pp": 4.66,
+  "criterion": "accuracy disparity <= 5.0 pp (representative)",
+  "pass": true
+}

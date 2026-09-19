@@ -1,0 +1,446 @@
+{
+  "oracle": {
+    "design": "oracle",
+    "stream_rows": 2084,
+    "units": 20,
+    "trail": 500,
+    "step": 25,
+    "bins": 10,
+    "onset": 800,
+    "ramp": 600,
+    "deviation_from_plan": null,
+    "noise_floor_approx": 0.018,
+    "mmd_bandwidth": 10.9723,
+    "ticks": 64,
+    "clean": {
+      "PSI": {
+        "max": 0.1238,
+        "psi_ticks_at_or_above_alert": 7,
+        "psi_ticks_at_or_above_inhibit": 0
+      },
+      "KS": {
+        "max": 0.157,
+        "psi_ticks_at_or_above_alert": null,
+        "psi_ticks_at_or_above_inhibit": null
+      },
+      "MMD": {
+        "max": 0.0126,
+        "psi_ticks_at_or_above_alert": null,
+        "psi_ticks_at_or_above_inhibit": null
+      }
+    },
+    "injected": {
+      "0.5": {
+        "PSI": {
+          "clean_max_threshold": 0.1238,
+          "latency_cycles": 475,
+          "bias_sigma_at_detection": 0.396
+        },
+        "KS": {
+          "clean_max_threshold": 0.157,
+          "latency_cycles": 475,
+          "bias_sigma_at_detection": 0.396
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0126,
+          "latency_cycles": null,
+          "bias_sigma_at_detection": null
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 425,
+          "bias_sigma_at_attributable_alert": 0.354,
+          "inhibit_latency_cycles": 675,
+          "bias_sigma_at_inhibit": 0.5
+        }
+      },
+      "1.0": {
+        "PSI": {
+          "clean_max_threshold": 0.1238,
+          "latency_cycles": 375,
+          "bias_sigma_at_detection": 0.625
+        },
+        "KS": {
+          "clean_max_threshold": 0.157,
+          "latency_cycles": 375,
+          "bias_sigma_at_detection": 0.625
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0126,
+          "latency_cycles": 250,
+          "bias_sigma_at_detection": 0.417
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 350,
+          "bias_sigma_at_attributable_alert": 0.583,
+          "inhibit_latency_cycles": 450,
+          "bias_sigma_at_inhibit": 0.75
+        }
+      },
+      "1.5": {
+        "PSI": {
+          "clean_max_threshold": 0.1238,
+          "latency_cycles": 300,
+          "bias_sigma_at_detection": 0.75
+        },
+        "KS": {
+          "clean_max_threshold": 0.157,
+          "latency_cycles": 325,
+          "bias_sigma_at_detection": 0.812
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0126,
+          "latency_cycles": 250,
+          "bias_sigma_at_detection": 0.625
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 300,
+          "bias_sigma_at_attributable_alert": 0.75,
+          "inhibit_latency_cycles": 375,
+          "bias_sigma_at_inhibit": 0.938
+        }
+      },
+      "2.0": {
+        "PSI": {
+          "clean_max_threshold": 0.1238,
+          "latency_cycles": 275,
+          "bias_sigma_at_detection": 0.917
+        },
+        "KS": {
+          "clean_max_threshold": 0.157,
+          "latency_cycles": 300,
+          "bias_sigma_at_detection": 1.0
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0126,
+          "latency_cycles": 250,
+          "bias_sigma_at_detection": 0.833
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 275,
+          "bias_sigma_at_attributable_alert": 0.917,
+          "inhibit_latency_cycles": 350,
+          "bias_sigma_at_inhibit": 1.167
+        }
+      },
+      "3.0": {
+        "PSI": {
+          "clean_max_threshold": 0.1238,
+          "latency_cycles": 250,
+          "bias_sigma_at_detection": 1.25
+        },
+        "KS": {
+          "clean_max_threshold": 0.157,
+          "latency_cycles": 250,
+          "bias_sigma_at_detection": 1.25
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0126,
+          "latency_cycles": 225,
+          "bias_sigma_at_detection": 1.125
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 250,
+          "bias_sigma_at_attributable_alert": 1.25,
+          "inhibit_latency_cycles": 275,
+          "bias_sigma_at_inhibit": 1.375
+        }
+      }
+    }
+  },
+  "cyclecount": {
+    "design": "cyclecount",
+    "stream_rows": 800,
+    "units": 20,
+    "trail": 200,
+    "step": 25,
+    "bins": 10,
+    "onset": 320,
+    "ramp": 240,
+    "deviation_from_plan": "trailing window scaled to 25% of an 800-row stream",
+    "noise_floor_approx": 0.045,
+    "mmd_bandwidth": 10.4742,
+    "ticks": 24,
+    "clean": {
+      "PSI": {
+        "max": 0.3605,
+        "psi_ticks_at_or_above_alert": 24,
+        "psi_ticks_at_or_above_inhibit": 2
+      },
+      "KS": {
+        "max": 0.2004,
+        "psi_ticks_at_or_above_alert": null,
+        "psi_ticks_at_or_above_inhibit": null
+      },
+      "MMD": {
+        "max": 0.0074,
+        "psi_ticks_at_or_above_alert": null,
+        "psi_ticks_at_or_above_inhibit": null
+      }
+    },
+    "injected": {
+      "0.5": {
+        "PSI": {
+          "clean_max_threshold": 0.3605,
+          "latency_cycles": 305,
+          "bias_sigma_at_detection": 0.5
+        },
+        "KS": {
+          "clean_max_threshold": 0.2004,
+          "latency_cycles": 255,
+          "bias_sigma_at_detection": 0.5
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0074,
+          "latency_cycles": 280,
+          "bias_sigma_at_detection": 0.5
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 30,
+          "bias_sigma_at_attributable_alert": 0.062,
+          "inhibit_latency_cycles": 280,
+          "bias_sigma_at_inhibit": 0.5
+        }
+      },
+      "1.0": {
+        "PSI": {
+          "clean_max_threshold": 0.3605,
+          "latency_cycles": 180,
+          "bias_sigma_at_detection": 0.75
+        },
+        "KS": {
+          "clean_max_threshold": 0.2004,
+          "latency_cycles": 180,
+          "bias_sigma_at_detection": 0.75
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0074,
+          "latency_cycles": 280,
+          "bias_sigma_at_detection": 1.0
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 30,
+          "bias_sigma_at_attributable_alert": 0.125,
+          "inhibit_latency_cycles": 180,
+          "bias_sigma_at_inhibit": 0.75
+        }
+      },
+      "1.5": {
+        "PSI": {
+          "clean_max_threshold": 0.3605,
+          "latency_cycles": 180,
+          "bias_sigma_at_detection": 1.125
+        },
+        "KS": {
+          "clean_max_threshold": 0.2004,
+          "latency_cycles": 130,
+          "bias_sigma_at_detection": 0.812
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0074,
+          "latency_cycles": 280,
+          "bias_sigma_at_detection": 1.5
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 30,
+          "bias_sigma_at_attributable_alert": 0.188,
+          "inhibit_latency_cycles": 155,
+          "bias_sigma_at_inhibit": 0.969
+        }
+      },
+      "2.0": {
+        "PSI": {
+          "clean_max_threshold": 0.3605,
+          "latency_cycles": 155,
+          "bias_sigma_at_detection": 1.292
+        },
+        "KS": {
+          "clean_max_threshold": 0.2004,
+          "latency_cycles": 130,
+          "bias_sigma_at_detection": 1.083
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0074,
+          "latency_cycles": 255,
+          "bias_sigma_at_detection": 2.0
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 30,
+          "bias_sigma_at_attributable_alert": 0.25,
+          "inhibit_latency_cycles": 130,
+          "bias_sigma_at_inhibit": 1.083
+        }
+      },
+      "3.0": {
+        "PSI": {
+          "clean_max_threshold": 0.3605,
+          "latency_cycles": 130,
+          "bias_sigma_at_detection": 1.625
+        },
+        "KS": {
+          "clean_max_threshold": 0.2004,
+          "latency_cycles": 105,
+          "bias_sigma_at_detection": 1.312
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0074,
+          "latency_cycles": 230,
+          "bias_sigma_at_detection": 2.875
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 30,
+          "bias_sigma_at_attributable_alert": 0.375,
+          "inhibit_latency_cycles": 105,
+          "bias_sigma_at_inhibit": 1.312
+        }
+      }
+    }
+  },
+  "wholelife": {
+    "design": "wholelife",
+    "stream_rows": 4104,
+    "units": 20,
+    "trail": 500,
+    "step": 25,
+    "bins": 10,
+    "onset": 800,
+    "ramp": 600,
+    "deviation_from_plan": null,
+    "noise_floor_approx": 0.018,
+    "mmd_bandwidth": 19.1961,
+    "ticks": 145,
+    "clean": {
+      "PSI": {
+        "max": 2.7264,
+        "psi_ticks_at_or_above_alert": 134,
+        "psi_ticks_at_or_above_inhibit": 81
+      },
+      "KS": {
+        "max": 0.3632,
+        "psi_ticks_at_or_above_alert": null,
+        "psi_ticks_at_or_above_inhibit": null
+      },
+      "MMD": {
+        "max": 0.0677,
+        "psi_ticks_at_or_above_alert": null,
+        "psi_ticks_at_or_above_inhibit": null
+      }
+    },
+    "injected": {
+      "0.5": {
+        "PSI": {
+          "clean_max_threshold": 2.7264,
+          "latency_cycles": null,
+          "bias_sigma_at_detection": null
+        },
+        "KS": {
+          "clean_max_threshold": 0.3632,
+          "latency_cycles": null,
+          "bias_sigma_at_detection": null
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0677,
+          "latency_cycles": 1175,
+          "bias_sigma_at_detection": 0.5
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 525,
+          "bias_sigma_at_attributable_alert": 0.438,
+          "inhibit_latency_cycles": 325,
+          "bias_sigma_at_inhibit": 0.271
+        }
+      },
+      "1.0": {
+        "PSI": {
+          "clean_max_threshold": 2.7264,
+          "latency_cycles": null,
+          "bias_sigma_at_detection": null
+        },
+        "KS": {
+          "clean_max_threshold": 0.3632,
+          "latency_cycles": 875,
+          "bias_sigma_at_detection": 1.0
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0677,
+          "latency_cycles": 1150,
+          "bias_sigma_at_detection": 1.0
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 400,
+          "bias_sigma_at_attributable_alert": 0.667,
+          "inhibit_latency_cycles": 325,
+          "bias_sigma_at_inhibit": 0.542
+        }
+      },
+      "1.5": {
+        "PSI": {
+          "clean_max_threshold": 2.7264,
+          "latency_cycles": 950,
+          "bias_sigma_at_detection": 1.5
+        },
+        "KS": {
+          "clean_max_threshold": 0.3632,
+          "latency_cycles": 600,
+          "bias_sigma_at_detection": 1.5
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0677,
+          "latency_cycles": 1125,
+          "bias_sigma_at_detection": 1.5
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 375,
+          "bias_sigma_at_attributable_alert": 0.938,
+          "inhibit_latency_cycles": 325,
+          "bias_sigma_at_inhibit": 0.812
+        }
+      },
+      "2.0": {
+        "PSI": {
+          "clean_max_threshold": 2.7264,
+          "latency_cycles": 750,
+          "bias_sigma_at_detection": 2.0
+        },
+        "KS": {
+          "clean_max_threshold": 0.3632,
+          "latency_cycles": 550,
+          "bias_sigma_at_detection": 1.833
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0677,
+          "latency_cycles": 1125,
+          "bias_sigma_at_detection": 2.0
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 350,
+          "bias_sigma_at_attributable_alert": 1.167,
+          "inhibit_latency_cycles": 325,
+          "bias_sigma_at_inhibit": 1.083
+        }
+      },
+      "3.0": {
+        "PSI": {
+          "clean_max_threshold": 2.7264,
+          "latency_cycles": 625,
+          "bias_sigma_at_detection": 3.0
+        },
+        "KS": {
+          "clean_max_threshold": 0.3632,
+          "latency_cycles": 475,
+          "bias_sigma_at_detection": 2.375
+        },
+        "MMD": {
+          "clean_max_threshold": 0.0677,
+          "latency_cycles": 1125,
+          "bias_sigma_at_detection": 3.0
+        },
+        "PSI_declared_thresholds": {
+          "attributable_alert_latency_cycles": 225,
+          "bias_sigma_at_attributable_alert": 1.125,
+          "inhibit_latency_cycles": 275,
+          "bias_sigma_at_inhibit": 1.375
+        }
+      }
+    }
+  }
+}

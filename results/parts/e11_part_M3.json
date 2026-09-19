@@ -1,0 +1,49 @@
+{
+  "model": "M3",
+  "test_accuracy": 0.7284,
+  "leakage": {
+    "unit_level_acc": 0.7284,
+    "row_level_acc": 0.8765,
+    "gap_pp": 14.8
+  },
+  "feature_dim": 64,
+  "ood": {
+    "MSP": {
+      "fpr_measured_on_test": 0.0275,
+      "A_fd002_regimes": {
+        "auroc": 0.0034,
+        "tpr": 0.0,
+        "pass_97pct": false
+      },
+      "B_fd003_fan_mode": {
+        "auroc": 0.0549,
+        "tpr": 0.0013,
+        "pass_97pct": false
+      }
+    },
+    "feature_MAH": {
+      "fpr_measured_on_test": 0.0292,
+      "A_fd002_regimes": {
+        "auroc": 1.0,
+        "tpr": 1.0,
+        "pass_97pct": true
+      },
+      "B_fd003_fan_mode": {
+        "auroc": 0.9998,
+        "tpr": 1.0,
+        "pass_97pct": true
+      }
+    }
+  },
+  "calibration": {
+    "temperature": 2.113,
+    "ece_before": 0.1502,
+    "pass_before": false,
+    "ece_after": 0.0419,
+    "pass_after": true
+  },
+  "software": {
+    "torch": "2.14.0+cpu"
+  },
+  "runtime_s": 28.9
+}

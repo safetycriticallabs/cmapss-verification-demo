@@ -44,8 +44,8 @@ def ece(conf, correct, bins=15):
 
 def main():
     df = cmapss.load(DATA, "FD001", "train")
-    sensors = cmapss.informative_sensors(df)
     tr_u, va_u, te_u = cmapss.split_units(df["unit"].unique())
+    sensors = cmapss.informative_sensors(df[df["unit"].isin(tr_u)])
     Xtr, ytr, _, _ = cmapss.windows(df, tr_u, sensors)
     Xva, yva, _, _ = cmapss.windows(df, va_u, sensors)
     Xte, yte, _, _ = cmapss.windows(df, te_u, sensors)

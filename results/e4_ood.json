@@ -6,27 +6,105 @@
     "class_gaussians": 3
   },
   "criterion": "detection >= 97% at FPR <= 2% (representative)",
+  "threshold_rule": "98th percentile of in-distribution scores on the validation partition",
+  "n_id_val": 3637,
   "n_id_test": 3524,
-  "n_ood_A_fd002": 10185,
-  "n_ood_B_fd003_late": 7200,
+  "n_sets": {
+    "A_fd002_regimes": {
+      "windows": 46219,
+      "units": 260
+    },
+    "B_fd003_fan_mode": {
+      "windows": 3096,
+      "units": 43
+    },
+    "B_fd003_hpc_mode": {
+      "windows": 4104,
+      "units": 57
+    },
+    "B_fd003_pooled": {
+      "windows": 7200,
+      "units": 100
+    }
+  },
+  "odd_boundary_validation": {
+    "method": "KMeans k=2, n_init=20, random_state=0 on standardised per-unit signatures (last-20 minus first-20 cycle mean, over first-20 std), FD001 and FD003 standardised together",
+    "fd003_units": 100,
+    "hpc_mode_units": 57,
+    "fan_mode_units": 43,
+    "mean_distance_fd001_to_cluster_centres": [
+      6.702,
+      2.739
+    ],
+    "largest_signature_differences_fan_minus_hpc": [
+      [
+        "s12",
+        37.93
+      ],
+      [
+        "s7",
+        30.83
+      ],
+      [
+        "s15",
+        -10.58
+      ],
+      [
+        "s21",
+        9.19
+      ],
+      [
+        "s20",
+        8.89
+      ],
+      [
+        "s14",
+        8.32
+      ]
+    ]
+  },
+  "MSP_threshold": -0.611477,
+  "MSP_fpr_measured_on_test": 0.0253,
   "MSP_A_fd002_regimes": {
     "auroc": 0.1169,
-    "tpr_at_2pct_fpr": 0.0,
+    "tpr_at_threshold": 0.0,
     "pass_97pct": false
   },
-  "MSP_B_fd003_fanfault": {
+  "MSP_B_fd003_fan_mode": {
+    "auroc": 0.2274,
+    "tpr_at_threshold": 0.0061,
+    "pass_97pct": false
+  },
+  "MSP_B_fd003_hpc_mode": {
+    "auroc": 0.4453,
+    "tpr_at_threshold": 0.0158,
+    "pass_97pct": false
+  },
+  "MSP_B_fd003_pooled": {
     "auroc": 0.3516,
-    "tpr_at_2pct_fpr": 0.0096,
+    "tpr_at_threshold": 0.0117,
     "pass_97pct": false
   },
+  "MAH_threshold": 6.864952,
+  "MAH_fpr_measured_on_test": 0.019,
   "MAH_A_fd002_regimes": {
     "auroc": 1.0,
-    "tpr_at_2pct_fpr": 1.0,
+    "tpr_at_threshold": 1.0,
     "pass_97pct": true
   },
-  "MAH_B_fd003_fanfault": {
+  "MAH_B_fd003_fan_mode": {
+    "auroc": 0.9908,
+    "tpr_at_threshold": 0.9616,
+    "pass_97pct": false
+  },
+  "MAH_B_fd003_hpc_mode": {
+    "auroc": 0.5981,
+    "tpr_at_threshold": 0.0443,
+    "pass_97pct": false
+  },
+  "MAH_B_fd003_pooled": {
     "auroc": 0.767,
-    "tpr_at_2pct_fpr": 0.4421,
+    "tpr_at_threshold": 0.4387,
     "pass_97pct": false
   }
 }

@@ -1,17 +1,28 @@
 {
   "naive_design_findings": {
-    "N1_whole_life_pooled_max_psi": 7.89,
-    "N2_nominal_pooled_max_psi": 7.94,
-    "N3_per_asset_small_window": {
+    "N1_whole_life_raw_baseline": {
+      "clean_max_psi": 4.245,
+      "cause": "life-phase composition of the pooled baseline"
+    },
+    "N2_nominal_raw_baseline": {
+      "clean_max_psi": 3.353,
+      "cause": "engine-to-engine sensor offsets, no asset baseline"
+    },
+    "N3_per_asset_short_window": {
       "window": 60,
       "bins": 8,
+      "step": 25,
       "approx_noise_floor": 0.117,
-      "clean_false_alarm_rate": 1.0
+      "assets_monitored": 17,
+      "clean_false_alarm_rate_assets": 1.0,
+      "clean_false_alarm_rate_windows": 1.0,
+      "cause": "no-drift sampling floor of the statistic exceeds the alert threshold"
     },
     "N4_discrete_channel_degeneracy": {
       "channel": "s17",
-      "measured_clean_psi": 4.34,
-      "cause": "quantile bins collapse on integer-valued channel"
+      "unique_values_in_training_pool": 114,
+      "clean_max_psi": 4.337,
+      "cause": "quantile bins collapse on an integer-valued channel"
     },
     "lesson": "regime, asset baseline, and window/bin design are declared elements of the monitor; thresholds are only meaningful relative to the no-drift sampling floor"
   },
@@ -54,7 +65,11 @@
   "stream_length": 2084,
   "clean_run": {
     "max_psi": 0.1238,
-    "alert_crossings": true
+    "alert_crossings": true,
+    "first_alert_index": 975,
+    "ticks_at_or_above_alert": 7,
+    "ticks_total": 64,
+    "inhibit_crossings": false
   },
   "injected_run": {
     "alert_index": 975,
@@ -62,7 +77,12 @@
     "alert_latency_cycles": 175,
     "inhibit_latency_cycles": 350,
     "injected_bias_sigma_at_alert": 0.583,
-    "injected_bias_sigma_at_inhibit": 1.167
+    "injected_bias_sigma_at_inhibit": 1.167,
+    "first_index_injected_departs_from_clean": 1075,
+    "alert_index_attributable_to_injection": 1075,
+    "alert_latency_attributable_cycles": 275,
+    "injected_bias_sigma_at_attributable_alert": 0.917,
+    "note": "the first alert-level crossing of the injected run coincides with the clean stream's own excursion when alert_index equals the clean run's first_alert_index; use the attributable values for detection latency"
   },
   "classifier_false_fault_rate": {
     "pre_onset_mean_over_units": 0.1537,

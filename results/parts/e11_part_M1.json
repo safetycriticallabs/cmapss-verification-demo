@@ -1,0 +1,46 @@
+{
+  "model": "M1",
+  "test_accuracy": 0.8124,
+  "leakage": {
+    "unit_level_acc": 0.8124,
+    "row_level_acc": 0.8328,
+    "gap_pp": 2.03
+  },
+  "feature_dim": 128,
+  "ood": {
+    "MSP": {
+      "fpr_measured_on_test": 0.021,
+      "A_fd002_regimes": {
+        "auroc": 0.1232,
+        "tpr": 0.0,
+        "pass_97pct": false
+      },
+      "B_fd003_fan_mode": {
+        "auroc": 0.3065,
+        "tpr": 0.0116,
+        "pass_97pct": false
+      }
+    },
+    "feature_MAH": {
+      "fpr_measured_on_test": 0.0292,
+      "A_fd002_regimes": {
+        "auroc": 1.0,
+        "tpr": 1.0,
+        "pass_97pct": true
+      },
+      "B_fd003_fan_mode": {
+        "auroc": 0.9974,
+        "tpr": 0.9784,
+        "pass_97pct": true
+      }
+    }
+  },
+  "calibration": {
+    "temperature": 4.962,
+    "ece_before": 0.1596,
+    "pass_before": false,
+    "ece_after": 0.0317,
+    "pass_after": true
+  },
+  "runtime_s": 7.9
+}

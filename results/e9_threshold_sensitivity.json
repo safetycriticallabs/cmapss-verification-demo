@@ -1,0 +1,323 @@
+{
+  "ood": {
+    "MSP_A_fd002_regimes": {
+      "budget_0.01": {
+        "tpr": 0.0,
+        "fpr_measured_on_test": 0.0136,
+        "pass_at": []
+      },
+      "budget_0.02": {
+        "tpr": 0.0,
+        "fpr_measured_on_test": 0.0253,
+        "pass_at": []
+      },
+      "budget_0.05": {
+        "tpr": 0.0,
+        "fpr_measured_on_test": 0.0497,
+        "pass_at": []
+      },
+      "budget_0.10": {
+        "tpr": 0.0,
+        "fpr_measured_on_test": 0.0993,
+        "pass_at": []
+      }
+    },
+    "MSP_B_fd003_fan_mode": {
+      "budget_0.01": {
+        "tpr": 0.0029,
+        "fpr_measured_on_test": 0.0136,
+        "pass_at": []
+      },
+      "budget_0.02": {
+        "tpr": 0.0061,
+        "fpr_measured_on_test": 0.0253,
+        "pass_at": []
+      },
+      "budget_0.05": {
+        "tpr": 0.0116,
+        "fpr_measured_on_test": 0.0497,
+        "pass_at": []
+      },
+      "budget_0.10": {
+        "tpr": 0.0275,
+        "fpr_measured_on_test": 0.0993,
+        "pass_at": []
+      }
+    },
+    "MAH_A_fd002_regimes": {
+      "budget_0.01": {
+        "tpr": 1.0,
+        "fpr_measured_on_test": 0.0148,
+        "pass_at": [
+          0.9,
+          0.95,
+          0.97,
+          0.99
+        ]
+      },
+      "budget_0.02": {
+        "tpr": 1.0,
+        "fpr_measured_on_test": 0.019,
+        "pass_at": [
+          0.9,
+          0.95,
+          0.97,
+          0.99
+        ]
+      },
+      "budget_0.05": {
+        "tpr": 1.0,
+        "fpr_measured_on_test": 0.0323,
+        "pass_at": [
+          0.9,
+          0.95,
+          0.97,
+          0.99
+        ]
+      },
+      "budget_0.10": {
+        "tpr": 1.0,
+        "fpr_measured_on_test": 0.0701,
+        "pass_at": [
+          0.9,
+          0.95,
+          0.97,
+          0.99
+        ]
+      }
+    },
+    "MAH_B_fd003_fan_mode": {
+      "budget_0.01": {
+        "tpr": 0.9561,
+        "fpr_measured_on_test": 0.0148,
+        "pass_at": [
+          0.9,
+          0.95
+        ]
+      },
+      "budget_0.02": {
+        "tpr": 0.9616,
+        "fpr_measured_on_test": 0.019,
+        "pass_at": [
+          0.9,
+          0.95
+        ]
+      },
+      "budget_0.05": {
+        "tpr": 0.9696,
+        "fpr_measured_on_test": 0.0323,
+        "pass_at": [
+          0.9,
+          0.95
+        ]
+      },
+      "budget_0.10": {
+        "tpr": 0.9761,
+        "fpr_measured_on_test": 0.0701,
+        "pass_at": [
+          0.9,
+          0.95,
+          0.97
+        ]
+      }
+    }
+  },
+  "calibration": {
+    "temperature": 5.071,
+    "before": {
+      "bins_10": {
+        "ece": 0.1603,
+        "pass_at": []
+      },
+      "bins_15": {
+        "ece": 0.1603,
+        "pass_at": []
+      },
+      "bins_20": {
+        "ece": 0.1603,
+        "pass_at": []
+      },
+      "bins_30": {
+        "ece": 0.1608,
+        "pass_at": []
+      }
+    },
+    "after": {
+      "bins_10": {
+        "ece": 0.0262,
+        "pass_at": [
+          0.03,
+          0.05,
+          0.1
+        ]
+      },
+      "bins_15": {
+        "ece": 0.0295,
+        "pass_at": [
+          0.03,
+          0.05,
+          0.1
+        ]
+      },
+      "bins_20": {
+        "ece": 0.0319,
+        "pass_at": [
+          0.05,
+          0.1
+        ]
+      },
+      "bins_30": {
+        "ece": 0.0302,
+        "pass_at": [
+          0.05,
+          0.1
+        ]
+      }
+    }
+  },
+  "leakage": {
+    "runs": 15,
+    "honest_range": [
+      0.7842,
+      0.817
+    ],
+    "leaked_range": [
+      0.8178,
+      0.8336
+    ],
+    "per_run_inversion_band": [
+      [
+        0.8163,
+        0.8263
+      ],
+      [
+        0.817,
+        0.8268
+      ],
+      [
+        0.8033,
+        0.8257
+      ],
+      [
+        0.8041,
+        0.826
+      ],
+      [
+        0.8133,
+        0.8178
+      ],
+      [
+        0.8033,
+        0.8305
+      ],
+      [
+        0.8005,
+        0.8243
+      ],
+      [
+        0.8093,
+        0.8336
+      ],
+      [
+        0.8082,
+        0.8285
+      ],
+      [
+        0.7988,
+        0.8297
+      ],
+      [
+        0.7851,
+        0.8212
+      ],
+      [
+        0.7842,
+        0.8221
+      ],
+      [
+        0.7991,
+        0.8212
+      ],
+      [
+        0.7903,
+        0.8198
+      ],
+      [
+        0.7877,
+        0.8206
+      ]
+    ],
+    "thresholds_inverted_in_every_run": [
+      0.817,
+      0.8178
+    ],
+    "note": "a threshold in the last interval is passed by the leaked evaluation and failed by the honest one in every run; if the interval is empty no single threshold inverts every run"
+  },
+  "drift": {
+    "clean_max_psi": 0.1238,
+    "alert": {
+      "0.05": {
+        "clean_false_alarm_ticks": 62,
+        "attributable_latency_cycles": 275,
+        "bias_sigma_at_attributable_alert": 0.917
+      },
+      "0.075": {
+        "clean_false_alarm_ticks": 35,
+        "attributable_latency_cycles": 275,
+        "bias_sigma_at_attributable_alert": 0.917
+      },
+      "0.1": {
+        "clean_false_alarm_ticks": 7,
+        "attributable_latency_cycles": 275,
+        "bias_sigma_at_attributable_alert": 0.917
+      },
+      "0.125": {
+        "clean_false_alarm_ticks": 0,
+        "attributable_latency_cycles": 275,
+        "bias_sigma_at_attributable_alert": 0.917
+      },
+      "0.15": {
+        "clean_false_alarm_ticks": 0,
+        "attributable_latency_cycles": 275,
+        "bias_sigma_at_attributable_alert": 0.917
+      },
+      "0.2": {
+        "clean_false_alarm_ticks": 0,
+        "attributable_latency_cycles": 300,
+        "bias_sigma_at_attributable_alert": 1.0
+      }
+    },
+    "inhibit": {
+      "0.15": {
+        "clean_false_alarm_ticks": 0,
+        "latency_cycles": 275,
+        "bias_sigma_at_inhibit": 0.917
+      },
+      "0.2": {
+        "clean_false_alarm_ticks": 0,
+        "latency_cycles": 300,
+        "bias_sigma_at_inhibit": 1.0
+      },
+      "0.25": {
+        "clean_false_alarm_ticks": 0,
+        "latency_cycles": 350,
+        "bias_sigma_at_inhibit": 1.167
+      },
+      "0.3": {
+        "clean_false_alarm_ticks": 0,
+        "latency_cycles": 350,
+        "bias_sigma_at_inhibit": 1.167
+      },
+      "0.4": {
+        "clean_false_alarm_ticks": 0,
+        "latency_cycles": 375,
+        "bias_sigma_at_inhibit": 1.25
+      },
+      "0.5": {
+        "clean_false_alarm_ticks": 0,
+        "latency_cycles": 400,
+        "bias_sigma_at_inhibit": 1.333
+      }
+    }
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "M0": {
+    "model": "M0",
+    "test_accuracy": 0.8033,
+    "leakage": {
+      "unit_level_acc": 0.8033,
+      "row_level_acc": 0.8305,
+      "gap_pp": 2.72
+    },
+    "feature_dim": 64,
+    "ood": {
+      "MSP": {
+        "fpr_measured_on_test": 0.0253,
+        "A_fd002_regimes": {
+          "auroc": 0.1169,
+          "tpr": 0.0,
+          "pass_97pct": false
+        },
+        "B_fd003_fan_mode": {
+          "auroc": 0.2274,
+          "tpr": 0.0061,
+          "pass_97pct": false
+        }
+      },
+      "feature_MAH": {
+        "fpr_measured_on_test": 0.0204,
+        "A_fd002_regimes": {
+          "auroc": 1.0,
+          "tpr": 1.0,
+          "pass_97pct": true
+        },
+        "B_fd003_fan_mode": {
+          "auroc": 0.9953,
+          "tpr": 0.9638,
+          "pass_97pct": false
+        }
+      }
+    },
+    "calibration": {
+      "temperature": 5.071,
+      "ece_before": 0.1603,
+      "pass_before": false,
+      "ece_after": 0.0295,
+      "pass_after": true
+    },
+    "runtime_s": 5.1
+  },
+  "M1": {
+    "model": "M1",
+    "test_accuracy": 0.8124,
+    "leakage": {
+      "unit_level_acc": 0.8124,
+      "row_level_acc": 0.8328,
+      "gap_pp": 2.03
+    },
+    "feature_dim": 128,
+    "ood": {
+      "MSP": {
+        "fpr_measured_on_test": 0.021,
+        "A_fd002_regimes": {
+          "auroc": 0.1232,
+          "tpr": 0.0,
+          "pass_97pct": false
+        },
+        "B_fd003_fan_mode": {
+          "auroc": 0.3065,
+          "tpr": 0.0116,
+          "pass_97pct": false
+        }
+      },
+      "feature_MAH": {
+        "fpr_measured_on_test": 0.0292,
+        "A_fd002_regimes": {
+          "auroc": 1.0,
+          "tpr": 1.0,
+          "pass_97pct": true
+        },
+        "B_fd003_fan_mode": {
+          "auroc": 0.9974,
+          "tpr": 0.9784,
+          "pass_97pct": true
+        }
+      }
+    },
+    "calibration": {
+      "temperature": 4.962,
+      "ece_before": 0.1596,
+      "pass_before": false,
+      "ece_after": 0.0317,
+      "pass_after": true
+    },
+    "runtime_s": 7.9
+  },
+  "M2": {
+    "model": "M2",
+    "test_accuracy": 0.7988,
+    "leakage": {
+      "unit_level_acc": 0.7988,
+      "row_level_acc": 0.8435,
+      "gap_pp": 4.47
+    },
+    "ood": {
+      "MSP": {
+        "fpr_measured_on_test": 0.017,
+        "A_fd002_regimes": {
+          "auroc": 0.5077,
+          "tpr": 0.0138,
+          "pass_97pct": false
+        },
+        "B_fd003_fan_mode": {
+          "auroc": 0.5155,
+          "tpr": 0.0233,
+          "pass_97pct": false
+        }
+      }
+    },
+    "calibration": {
+      "temperature": 3.153,
+      "ece_before": 0.1315,
+      "pass_before": false,
+      "ece_after": 0.0237,
+      "pass_after": true
+    },
+    "runtime_s": 21.5
+  },
+  "M3": {
+    "model": "M3",
+    "test_accuracy": 0.7284,
+    "leakage": {
+      "unit_level_acc": 0.7284,
+      "row_level_acc": 0.8765,
+      "gap_pp": 14.8
+    },
+    "feature_dim": 64,
+    "ood": {
+      "MSP": {
+        "fpr_measured_on_test": 0.0275,
+        "A_fd002_regimes": {
+          "auroc": 0.0034,
+          "tpr": 0.0,
+          "pass_97pct": false
+        },
+        "B_fd003_fan_mode": {
+          "auroc": 0.0549,
+          "tpr": 0.0013,
+          "pass_97pct": false
+        }
+      },
+      "feature_MAH": {
+        "fpr_measured_on_test": 0.0292,
+        "A_fd002_regimes": {
+          "auroc": 1.0,
+          "tpr": 1.0,
+          "pass_97pct": true
+        },
+        "B_fd003_fan_mode": {
+          "auroc": 0.9998,
+          "tpr": 1.0,
+          "pass_97pct": true
+        }
+      }
+    },
+    "calibration": {
+      "temperature": 2.113,
+      "ece_before": 0.1502,
+      "pass_before": false,
+      "ece_after": 0.0419,
+      "pass_after": true
+    },
+    "software": {
+      "torch": "2.14.0+cpu"
+    },
+    "runtime_s": 28.9
+  },
+  "M4": {
+    "model": "M4",
+    "test_accuracy": 0.7704,
+    "leakage": {
+      "unit_level_acc": 0.7704,
+      "row_level_acc": 0.9191,
+      "gap_pp": 14.86
+    },
+    "feature_dim": 64,
+    "ood": {
+      "MSP": {
+        "fpr_measured_on_test": 0.0281,
+        "A_fd002_regimes": {
+          "auroc": 0.9115,
+          "tpr": 0.0264,
+          "pass_97pct": false
+        },
+        "B_fd003_fan_mode": {
+          "auroc": 0.7462,
+          "tpr": 0.1124,
+          "pass_97pct": false
+        }
+      },
+      "feature_MAH": {
+        "fpr_measured_on_test": 0.0065,
+        "A_fd002_regimes": {
+          "auroc": 0.9991,
+          "tpr": 0.9583,
+          "pass_97pct": false
+        },
+        "B_fd003_fan_mode": {
+          "auroc": 0.9936,
+          "tpr": 0.9577,
+          "pass_97pct": false
+        }
+      }
+    },
+    "calibration": {
+      "temperature": 2.38,
+      "ece_before": 0.166,
+      "pass_before": false,
+      "ece_after": 0.0576,
+      "pass_after": false
+    },
+    "software": {
+      "torch": "2.14.0+cpu"
+    },
+    "runtime_s": 78.9
+  }
+}
