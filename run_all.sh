@@ -22,4 +22,5 @@ for d in oracle cyclecount wholelife; do python3 $S/e10_drift_deployable.py "$DA
 python3 $S/e10_drift_deployable.py "$DATA" "$OUT" merge
 for m in M0 M1 M2 M3 M4; do python3 $S/e11_model_sweep.py "$DATA" "$OUT" $m; done   # M3, M4 need PyTorch
 python3 $S/e11_model_sweep.py "$DATA" "$OUT" merge
+python3 $S/e12_evidence_sufficiency.py "$DATA" "$OUT"          # reads e4_odd_boundary.json
 echo "done: $OUT"

@@ -1,0 +1,79 @@
+{
+  "detection_fan_mode": {
+    "fan_mode_engines": 43,
+    "pooled_tpr": 0.9616,
+    "per_engine_tpr_sd": 0.098,
+    "per_engine_tpr_min": 0.611,
+    "criterion": 0.97,
+    "scaling": {
+      "43": {
+        "half_width": 0.0293,
+        "upper": 0.9908,
+        "excludes_criterion": false
+      },
+      "86": {
+        "half_width": 0.0207,
+        "upper": 0.9823,
+        "excludes_criterion": false
+      },
+      "172": {
+        "half_width": 0.0146,
+        "upper": 0.9762,
+        "excludes_criterion": false
+      },
+      "344": {
+        "half_width": 0.0104,
+        "upper": 0.9719,
+        "excludes_criterion": false
+      },
+      "688": {
+        "half_width": 0.0073,
+        "upper": 0.9689,
+        "excludes_criterion": true
+      },
+      "1376": {
+        "half_width": 0.0052,
+        "upper": 0.9667,
+        "excludes_criterion": true
+      }
+    },
+    "engines_for_exclusion_at_observed_estimate": 688
+  },
+  "calibration_after_scaling": {
+    "test_engines": 20,
+    "ece_after": 0.0295,
+    "criterion": 0.05,
+    "resampling_extrapolation": {
+      "20": {
+        "interval": [
+          0.0168,
+          0.058
+        ],
+        "excludes_criterion": false
+      },
+      "40": {
+        "interval": [
+          0.0187,
+          0.0479
+        ],
+        "excludes_criterion": true
+      },
+      "80": {
+        "interval": [
+          0.0189,
+          0.0425
+        ],
+        "excludes_criterion": true
+      },
+      "160": {
+        "interval": [
+          0.0204,
+          0.0392
+        ],
+        "excludes_criterion": true
+      }
+    },
+    "engines_for_exclusion": 40
+  },
+  "note": "approximations of interval scaling at the observed point estimates; not predictions for new engines"
+}
