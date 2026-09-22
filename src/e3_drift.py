@@ -289,18 +289,25 @@ def main():
             "full_bias_mean_over_units": round(float(np.mean(ff["full"])), 4)},
     }
 
-    fig, ax = plt.subplots(figsize=(8, 4))
-    ax.plot(t_c, a_c, lw=1.2, color="gray", label="clean stream")
-    ax.plot(t_i, a_i, lw=1.5, color="C0", label="injected drift")
-    ax.axhline(ALERT, color="orange", ls="--", lw=1, label=f"alert {ALERT}")
-    ax.axhline(INHIBIT, color="red", ls="--", lw=1, label=f"inhibit {INHIBIT}")
-    ax.axvline(T0, color="k", ls=":", lw=1, label="drift onset")
-    ax.set_xlabel("fleet nominal-residual stream index (cycles)")
-    ax.set_ylabel("aggregate PSI")
-    ax.set_title("E3: fleet-level PSI monitoring of asset-normalised residuals")
-    ax.legend(fontsize=8)
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4), gridspec_kw={"width_ratios": [1.35, 1]})
+    for k, ax in enumerate(axes):
+        ax.plot(t_c, a_c, lw=1.2, color="gray", label="clean stream")
+        ax.plot(t_i, a_i, lw=1.5, color="C0", label="injected drift")
+        ax.axhline(ALERT, color="orange", ls="--", lw=1, label=f"alert {ALERT}")
+        ax.axhline(INHIBIT, color="red", ls="--", lw=1, label=f"inhibit {INHIBIT}")
+        ax.axvline(T0, color="k", ls=":", lw=1, label="drift onset")
+        if t_alert_attr:
+            ax.axvline(t_alert_attr, color="C0", ls=":", lw=1, label="attributable alert")
+        if t_inhibit:
+            ax.axvline(t_inhibit, color="red", ls=":", lw=1, label="inhibit crossing")
+        ax.set_xlabel("fleet nominal-residual stream index (cycles)")
+        ax.text(-0.08, 1.04, "ab"[k], transform=ax.transAxes, fontsize=12, fontweight="bold")
+    axes[0].set_yscale("log"); axes[0].set_ylabel("aggregate PSI (log scale)")
+    axes[0].legend(fontsize=7, loc="upper left")
+    axes[1].set_xlim(T0 - 100, T0 + 500); axes[1].set_ylim(0, 0.4)
+    axes[1].set_ylabel("aggregate PSI")
     fig.tight_layout()
-    fig.savefig(f"{OUT}/figures/e3_drift_psi.png", dpi=150)
+    fig.savefig(f"{OUT}/figures/e3_drift_psi.png", dpi=200)
 
     with open(f"{OUT}/e3_drift.json", "w") as f:
         json.dump(res, f, indent=2)

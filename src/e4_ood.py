@@ -95,16 +95,15 @@ def fault_mode_labels(d1, d3, sensors):
     # figure: signatures in the first two principal components
     pca = PCA(n_components=2, random_state=0).fit(sc.transform(np.vstack([S1, S3])))
     Z1, Z3 = pca.transform(sc.transform(S1)), pca.transform(sc.transform(S3))
-    fig, ax = plt.subplots(figsize=(6, 4.5))
-    ax.scatter(Z1[:, 0], Z1[:, 1], s=18, marker="x", color="gray", label="FD001 units (HPC only)")
+    fig, ax = plt.subplots(figsize=(6.4, 4.8))
+    ax.scatter(Z1[:, 0], Z1[:, 1], s=18, marker="x", color="gray", label="FD001 training fleet (HPC degradation)")
     m = km.labels_ == hpc_cluster
-    ax.scatter(Z3[m, 0], Z3[m, 1], s=22, color="C0", label="FD003 units, HPC-mode cluster")
-    ax.scatter(Z3[~m, 0], Z3[~m, 1], s=22, color="C3", label="FD003 units, fan-mode cluster")
+    ax.scatter(Z3[m, 0], Z3[m, 1], s=22, color="C0", label="FD003 engines, HPC-mode cluster (in-envelope)")
+    ax.scatter(Z3[~m, 0], Z3[~m, 1], s=22, color="C3", label="FD003 engines, fan-mode cluster (out-of-envelope)")
     ax.set_xlabel("signature PC1"); ax.set_ylabel("signature PC2")
-    ax.set_title("E4: ODD boundary validation, FD003 fault-mode signatures")
     ax.legend(fontsize=8)
     fig.tight_layout()
-    fig.savefig(f"{OUT}/figures/e4_fd003_signatures.png", dpi=150)
+    fig.savefig(f"{OUT}/figures/e4_fd003_signatures.png", dpi=200)
     return labels, art
 
 
@@ -191,17 +190,30 @@ def main():
             ax.set_xscale("log")
         else:
             bins = np.linspace(allv.min(), -0.32, 70)
-        ax.hist(s_id, bins=bins, alpha=0.5, density=True, label="ID (FD001 test)", color="gray")
-        for tag, col in (("A_fd002_regimes", "C0"), ("B_fd003_fan_mode", "C3"),
-                         ("B_fd003_hpc_mode", "C2")):
-            ax.hist(oods[tag], bins=bins, alpha=0.45, density=True, label=tag, color=col)
+        ax.hist(s_id, bins=bins, alpha=0.5, density=True, label="in-envelope test partition (FD001)", color="gray")
+        for tag, col, lab in (("A_fd002_regimes", "C0", "six unseen regimes (FD002)"),
+                              ("B_fd003_fan_mode", "C3", "fan-mode engines (FD003)"),
+                              ("B_fd003_hpc_mode", "C2", "in-envelope HPC-mode engines (FD003)")):
+            ax.hist(oods[tag], bins=bins, alpha=0.45, density=True, label=lab, color=col)
         ax.axvline(thr, color="k", ls="--", lw=1, label="2% FPR threshold (validation)")
-        ax.set_title(name)
+        ax.set_title({"MSP": "maximum softmax probability", "MAH": "class-conditional Mahalanobis distance"}[name])
+        ax.set_xlabel("score" if name == "MAH" else "negative maximum softmax probability"); ax.set_ylabel("density")
         ax.set_yscale("log")
         ax.legend(fontsize=7)
-    fig.suptitle("E4: OOD score distributions")
     fig.tight_layout()
-    fig.savefig(f"{OUT}/figures/e4_ood_scores.png", dpi=150)
+    fig.savefig(f"{OUT}/figures/e4_ood_scores.png", dpi=200)
+    # combined two-panel figure for publication: (a) signatures, (b) score distributions
+    import matplotlib.image as mpimg
+    figc = plt.figure(figsize=(11, 8.6))
+    gs = figc.add_gridspec(2, 1, height_ratios=[1.05, 1])
+    axa = figc.add_subplot(gs[0]); axa.axis("off")
+    axa.imshow(mpimg.imread(f"{OUT}/figures/e4_fd003_signatures.png"))
+    figc.text(0.02, 0.975, "a", fontsize=13, fontweight="bold", va="top")
+    axb = figc.add_subplot(gs[1]); axb.axis("off")
+    axb.imshow(mpimg.imread(f"{OUT}/figures/e4_ood_scores.png"))
+    figc.text(0.02, 0.50, "b", fontsize=13, fontweight="bold", va="top")
+    figc.tight_layout()
+    figc.savefig(f"{OUT}/figures/e4_fig3_combined.png", dpi=200)
 
     with open(f"{OUT}/e4_ood.json", "w") as f:
         json.dump(res, f, indent=2)

@@ -171,7 +171,6 @@ def main():
     for c in ECE_CRITERIA:
         ax[1].axhline(c, color="gray", ls=":", lw=0.8)
     ax[1].set_xlabel("ECE bins"); ax[1].set_ylabel("ECE"); ax[1].legend(fontsize=8); ax[1].set_title("calibration determination vs binning")
-    fig.suptitle("E9: threshold sensitivity")
     fig.tight_layout()
     fig.savefig(f"{OUT}/figures/e9_threshold_sensitivity.png", dpi=150)
     json.dump(res, open(f"{OUT}/e9_threshold_sensitivity.json", "w"), indent=2)

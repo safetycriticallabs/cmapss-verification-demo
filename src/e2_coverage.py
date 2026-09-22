@@ -97,7 +97,6 @@ def main():
     ax[1].set_title(f"training cells reached by test (coverage {grid_cov:.2f})")
     for a in ax:
         a.set_xlabel("PC1"); a.set_ylabel("PC2")
-    fig.suptitle("E2: coverage of the declared envelope by the test partition")
     fig.tight_layout()
     fig.savefig(f"{OUT}/figures/e2_coverage.png", dpi=150)
     json.dump(res, open(f"{OUT}/e2_coverage.json", "w"), indent=2)

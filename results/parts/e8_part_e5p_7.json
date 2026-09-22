@@ -1,0 +1,55 @@
+[
+ {
+  "partition_seed": 7,
+  "model_seed": 0,
+  "n_test_units": 20,
+  "test_acc": 0.7851,
+  "temperature": 5.414,
+  "ece_before": 0.1758,
+  "ece_before_ci": [
+   0.149,
+   0.207
+  ],
+  "ece_after": 0.0187,
+  "ece_after_ci": [
+   0.011,
+   0.047
+  ]
+ },
+ {
+  "partition_seed": 7,
+  "model_seed": 1,
+  "n_test_units": 20,
+  "test_acc": 0.7842,
+  "temperature": 5.542,
+  "ece_before": 0.1759,
+  "ece_after": 0.02
+ },
+ {
+  "partition_seed": 7,
+  "model_seed": 2,
+  "n_test_units": 20,
+  "test_acc": 0.7991,
+  "temperature": 5.269,
+  "ece_before": 0.1611,
+  "ece_after": 0.0139
+ },
+ {
+  "partition_seed": 7,
+  "model_seed": 3,
+  "n_test_units": 20,
+  "test_acc": 0.7903,
+  "temperature": 5.268,
+  "ece_before": 0.1703,
+  "ece_after": 0.0222
+ },
+ {
+  "partition_seed": 7,
+  "model_seed": 4,
+  "n_test_units": 20,
+  "test_acc": 0.7877,
+  "temperature": 5.315,
+  "ece_before": 0.1735,
+  "ece_after": 0.0192
+ }
+]

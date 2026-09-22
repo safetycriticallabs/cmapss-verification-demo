@@ -15,6 +15,7 @@ python3 $S/e6_disparity.py "$DATA" "$OUT"
 python3 $S/e7_robustness.py "$DATA" "$OUT"
 for p in 42 7 11; do python3 $S/e8_seeds_bootstrap.py "$DATA" "$OUT" seeds_e0e1 $p; done
 python3 $S/e8_seeds_bootstrap.py "$DATA" "$OUT" seeds_e4e5
+for p in 7 11; do python3 $S/e8_seeds_bootstrap.py "$DATA" "$OUT" seeds_e5p $p; done
 python3 $S/e8_seeds_bootstrap.py "$DATA" "$OUT" bootstrap
 python3 $S/e8_seeds_bootstrap.py "$DATA" "$OUT" merge
 python3 $S/e9_threshold_sensitivity.py "$DATA" "$OUT"    # reads e8_seeds_bootstrap.json

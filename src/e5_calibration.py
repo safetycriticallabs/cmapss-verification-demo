@@ -85,12 +85,12 @@ def main():
         ay = [d[2] for d in detail]
         ax.plot([0, 1], [0, 1], "k--", lw=1)
         ax.bar(cx, ay, width=1 / 15, edgecolor="k", alpha=0.7)
-        ax.set_title(f"{tag} (ECE={res['ece_' + tag]:.3f})")
+        ax.set_title({"before": "before temperature scaling", "after": "after temperature scaling"}[tag] + f" (ECE = {res['ece_' + tag]:.3f})")
+        ax.text(-0.1, 1.04, {"before": "a", "after": "b"}[tag], transform=ax.transAxes, fontsize=12, fontweight="bold")
         ax.set_xlabel("confidence")
     axes[0].set_ylabel("empirical accuracy")
-    fig.suptitle("Reliability diagrams, test partition (E5)")
     fig.tight_layout()
-    fig.savefig(f"{OUT}/figures/e5_reliability.png", dpi=150)
+    fig.savefig(f"{OUT}/figures/e5_reliability.png", dpi=200)
 
     with open(f"{OUT}/e5_calibration.json", "w") as f:
         json.dump(res, f, indent=2)

@@ -3,6 +3,8 @@
 Parts (run separately; each writes a partial file, `merge` combines them):
   seeds_e0e1 <pseed>  E0/E1 for one partition seed x model seeds 0..4
   seeds_e4e5          E4 softmax and E5 calibration for model seeds 0..4
+  seeds_e5p <pseed>   E5 calibration for one further partition seed x model seeds 0..4,
+                      with unit-level bootstrap intervals at model seed 0
   bootstrap           unit-level bootstrap intervals (B = 1000, seed 2026)
   merge               combine partial files into e8_seeds_bootstrap.json
 """
@@ -122,6 +124,41 @@ def part_seeds_e4e5():
     json.dump(rows, open(f"{OUT}/parts/e8_part_e4e5.json", "w"), indent=1)
 
 
+def part_seeds_e5p(pseed):
+    """Calibration across partition seeds: ECE before/after temperature scaling for
+    model seeds 0..4 at partition seed `pseed`, plus unit-level bootstrap intervals
+    (B = 1000) at model seed 0. Same estimator, scaler and temperature fit as E5."""
+    rng = np.random.default_rng(BOOT_SEED + pseed)
+    df, tr_u, va_u, te_u, sensors = base(pseed)
+    Xtr, ytr, _, _ = cmapss.windows(df, tr_u, sensors)
+    Xva, yva, _, _ = cmapss.windows(df, va_u, sensors)
+    Xte, yte, ute, _ = cmapss.windows(df, te_u, sensors)
+    sc = StandardScaler().fit(Xtr)
+    units = np.unique(ute)
+    idx_by_unit = {u: np.nonzero(ute == u)[0] for u in units}
+    rows = []
+    for ms in MODEL_SEEDS:
+        m = model(ms).fit(sc.transform(Xtr), ytr)
+        lva = np.log(np.clip(m.predict_proba(sc.transform(Xva)), 1e-12, 1))
+        lte = np.log(np.clip(m.predict_proba(sc.transform(Xte)), 1e-12, 1))
+        T = fit_temperature(lva, yva)
+        r = {"partition_seed": pseed, "model_seed": ms, "n_test_units": int(len(units)),
+             "test_acc": round(float((m.predict(sc.transform(Xte)) == yte).mean()), 4),
+             "temperature": round(T, 3)}
+        for tag, temp in (("before", 1.0), ("after", T)):
+            pr = softmax(lte / temp, axis=1); conf = pr.max(1); corr = (pr.argmax(1) == yte).astype(float)
+            r[f"ece_{tag}"] = round(ece(conf, corr), 4)
+            if ms == 0:
+                vals = []
+                for _ in range(B):
+                    pick = rng.choice(units, size=len(units), replace=True)
+                    i = np.concatenate([idx_by_unit[u] for u in pick])
+                    vals.append(ece(conf[i], corr[i]))
+                r[f"ece_{tag}_ci"] = [round(float(np.percentile(vals, 2.5)), 4), round(float(np.percentile(vals, 97.5)), 4)]
+        rows.append(r); print(r, flush=True)
+    json.dump(rows, open(f"{OUT}/parts/e8_part_e5p_{pseed}.json", "w"), indent=1)
+
+
 def part_bootstrap():
     rng = np.random.default_rng(BOOT_SEED)
     df, tr_u, va_u, te_u, sensors = base(42)
@@ -216,19 +253,38 @@ def part_merge():
         rows += json.load(open(f))
     e45 = json.load(open(f"{OUT}/parts/e8_part_e4e5.json"))
     boot = json.load(open(f"{OUT}/parts/e8_part_bootstrap.json"))
+    e5p = []
+    for f in sorted(glob.glob(f"{OUT}/parts/e8_part_e5p_*.json")):
+        e5p += json.load(open(f))
     res = {"seed_sweep_e0e1": {"runs": rows,
                                "gap_pp": summary([r["gap_pp"] for r in rows]),
                                "unit_level_acc": summary([r["unit_level_acc"] for r in rows]),
                                "row_level_acc": summary([r["row_level_acc"] for r in rows]),
                                "gap_always_positive": bool(min(r["gap_pp"] for r in rows) > 0),
-                               "inverted_band": [round(min(r["unit_level_acc"] for r in rows), 4),
-                                                 round(max(r["row_level_acc"] for r in rows), 4)]},
+                               # thresholds passed by the leaked evaluation and failed by the honest one in EVERY run
+                               "inverted_in_every_run_band": [round(max(r["unit_level_acc"] for r in rows), 4),
+                                                              round(min(r["row_level_acc"] for r in rows), 4)],
+                               # thresholds inverted in at least one run (union over runs)
+                               "inverted_in_any_run_band": [round(min(r["unit_level_acc"] for r in rows), 4),
+                                                            round(max(r["row_level_acc"] for r in rows), 4)]},
            "seed_sweep_e4e5": {"runs": e45,
                                **{k: summary([r[k] for r in e45]) for k in e45[0] if k != "model_seed"}},
            "bootstrap": boot}
+    if e5p:
+        # partition-seed sweep for calibration: seed 42 rows come from seeds_e4e5, the others from seeds_e5p
+        allrows = [{"partition_seed": 42, "model_seed": r["model_seed"], "ece_before": r["ece_before"],
+                    "ece_after": r["ece_after"], "temperature": r["temperature"]} for r in e45] + e5p
+        res["seed_sweep_e5_partition"] = {
+            "runs": e5p,
+            "n_runs_all_partitions": len(allrows),
+            **{k: summary([r[k] for r in allrows]) for k in ("ece_before", "ece_after", "temperature")},
+            "ece_after_ci_by_partition": {str(r["partition_seed"]): r["ece_after_ci"] for r in e5p if "ece_after_ci" in r},
+            "ece_before_ci_by_partition": {str(r["partition_seed"]): r["ece_before_ci"] for r in e5p if "ece_before_ci" in r}}
     json.dump(res, open(f"{OUT}/e8_seeds_bootstrap.json", "w"), indent=2)
     print(json.dumps({k: v for k, v in res["seed_sweep_e0e1"].items() if k != "runs"}, indent=1))
     print(json.dumps({k: v for k, v in res["seed_sweep_e4e5"].items() if k != "runs"}, indent=1))
+    if e5p:
+        print(json.dumps({k: v for k, v in res["seed_sweep_e5_partition"].items() if k != "runs"}, indent=1))
 
 
 if __name__ == "__main__":
@@ -236,6 +292,8 @@ if __name__ == "__main__":
         part_seeds_e0e1(int(ARG))
     elif PART == "seeds_e4e5":
         part_seeds_e4e5()
+    elif PART == "seeds_e5p":
+        part_seeds_e5p(int(ARG))
     elif PART == "bootstrap":
         part_bootstrap()
     else:

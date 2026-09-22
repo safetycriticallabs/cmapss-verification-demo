@@ -98,7 +98,15 @@ groups and is superseded.
 temperature 5.07). After temperature scaling on the validation partition: ECE
 0.0295 (PASS on the point estimate; unit-level bootstrap interval 0.016 to
 0.059 straddles the criterion), test accuracy unchanged at 0.8033. Stable
-across five model seeds (ECE after 0.024 to 0.031).
+across five model seeds (ECE after 0.024 to 0.031). Partition-seed sweep
+(`seeds_e5p`, added 2026-09-21): over three partition seeds x five model
+seeds (15 runs) ECE before 0.144 to 0.176 and ECE after 0.014 to 0.031,
+temperature 4.71 to 5.54. Engine-level intervals on ECE after at model seed
+0: seed 42 [0.016, 0.059] (contains 0.05), seed 7 [0.011, 0.047] and seed 11
+[0.010, 0.040] (below it). The pre-registered partition is seed 42, so the
+reported determination stays insufficient evidence at 20 test engines; the
+other partitions show that whether the interval clears the criterion depends
+on which 20 engines are held out, which is what that determination means.
 
 **E2 (coverage).** The 20-engine test partition reaches 67% of the
 training-occupied cells of a 20 x 20 grid over the first two principal
